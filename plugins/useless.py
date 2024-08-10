@@ -16,12 +16,23 @@ from helper_func import get_readable_time
 
 
 
-@Bot.on_message(filters.command('stats') & filters.user(ADMINS))
+@Bot.on_message(filters.command('stats'))
 async def stats(bot: Bot, message: Message):
-    now = datetime.now()
-    delta = now - bot.uptime
-    time = get_readable_time(delta.seconds)
-    await message.reply(BOT_STATS_TEXT.format(uptime=time))
+    keyboard = InlineKeyboardMarkup(
+        [
+            [InlineKeyboardButton("View Stats", callback_data="stats")],
+            [InlineKeyboardButton("Close Me", callback_data="close")]
+        ]
+    )
+    picture_url = "https://telegra.ph/file/15c17f6139f7979b46bbd.jpg"
+    caption_text = "ᴀʜʜʜ! 🎀 ᴡᴀɴɴᴀ ᴄʜᴇᴄᴋ ᴍʏ ᴄᴀᴘᴀᴄɪᴛʏ ?"
+
+    await bot.send_photo(
+        chat_id=message.chat.id,
+        photo=picture_url,
+        caption=caption_text,
+        reply_markup=keyboard
+    )
 
 
 
