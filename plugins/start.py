@@ -1,4 +1,30 @@
-# Other parts of the code remain unchanged
+# Jishu Developer 
+# Don't Remove Credit 🥺
+# Telegram Channel @Madflix_Bots
+# Backup Channel @JishuBotz
+# Developer @JishuDeveloper
+
+
+
+
+import os
+import asyncio
+from pyrogram import Client, filters, __version__
+from pyrogram.enums import ParseMode
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
+from bot import Bot
+from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT
+from helper_func import subscribed, encode, decode, get_messages
+from database.database import add_user, del_user, full_userbase, present_user
+
+
+# add time im seconds for waitingwaiting before delete 
+# 1 minutes = 60, 2 minutes = 60×2=120, 5 minutes = 60×5=300
+SECONDS = int(os.getenv("SECONDS", "600"))
+
+
+
 
 @Bot.on_message(filters.command('start') & filters.private & subscribed)
 async def start_command(client: Client, message: Message):
