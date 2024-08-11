@@ -102,7 +102,7 @@ async def start_command(client: Client, message: Message):
         
         for file in sent_files:
             await file.delete()  # Delete each sent file message
-        await k.edit_text("Your video / file is successfully deleted !")
+        await k.edit_text("<b>ʙᴀʙʏ ʏᴏᴜʀ ꜱᴛᴜᴅʏ ᴍᴀᴛᴇʀɪᴀʟ ɪꜱ ᴅᴇʟᴇᴛᴇᴅ. 🙈 \n\nɪꜰ ʏᴏᴜ ꜱᴛɪʟʟ ꜰᴇᴇʟɪɴɢ ʜᴏʀɴʏ ᴏᴘᴇɴ ʟɪɴᴋ ᴀɢᴀɪɴ.! 🥵</b>")
 
         return
 
