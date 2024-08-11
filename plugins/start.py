@@ -1,30 +1,4 @@
-# Jishu Developer 
-# Don't Remove Credit 🥺
-# Telegram Channel @Madflix_Bots
-# Backup Channel @JishuBotz
-# Developer @JishuDeveloper
-
-
-
-
-import os
-import asyncio
-from pyrogram import Client, filters, __version__
-from pyrogram.enums import ParseMode
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
-from bot import Bot
-from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT
-from helper_func import subscribed, encode, decode, get_messages
-from database.database import add_user, del_user, full_userbase, present_user
-
-
-# add time im seconds for waitingwaiting before delete 
-# 1 minutes = 60, 2 minutes = 60×2=120, 5 minutes = 60×5=300
-SECONDS = int(os.getenv("SECONDS", "600"))
-
-
-
+# Other parts of the code remain unchanged
 
 @Bot.on_message(filters.command('start') & filters.private & subscribed)
 async def start_command(client: Client, message: Message):
@@ -35,7 +9,7 @@ async def start_command(client: Client, message: Message):
         except:
             pass
     text = message.text
-    if len(text)>7:
+    if len(text) > 7:
         try:
             base64_string = text.split(" ", 1)[1]
         except:
@@ -49,7 +23,7 @@ async def start_command(client: Client, message: Message):
             except:
                 return
             if start <= end:
-                ids = range(start,end+1)
+                ids = range(start, end + 1)
             else:
                 ids = []
                 i = start
@@ -70,12 +44,13 @@ async def start_command(client: Client, message: Message):
             await message.reply_text("Something went wrong..!")
             return
         await temp_msg.delete()
-    
+
+        sent_files = []  # List to store the sent file messages
         
         for msg in messages:
-
             if bool(CUSTOM_CAPTION) & bool(msg.document):
-                caption = CUSTOM_CAPTION.format(previouscaption = "" if not msg.caption else msg.caption.html, filename = msg.document.file_name)
+                caption = CUSTOM_CAPTION.format(previouscaption="" if not msg.caption else msg.caption.html,
+                                                filename=msg.document.file_name)
             else:
                 caption = "" if not msg.caption else msg.caption.html
 
@@ -85,21 +60,26 @@ async def start_command(client: Client, message: Message):
                 reply_markup = None
 
             try:
-                f = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-
+                f = await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML,
+                                   reply_markup=reply_markup, protect_content=PROTECT_CONTENT)
+                sent_files.append(f)  # Store the sent message
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                f = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-
+                f = await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML,
+                                   reply_markup=reply_markup, protect_content=PROTECT_CONTENT)
+                sent_files.append(f)  # Store the sent message
             except:
                 pass
-        k = await client.send_message(chat_id = message.from_user.id, text=f"<b>⚠️ Fɪʟᴇꜱ ᴡɪʟʟ ʙᴇ Dᴇʟᴇᴛᴇᴅ ɪɴ 10 ᴍɪɴꜱ\n\n♻️ Pʟᴇᴀꜱᴇ Fᴏʀᴡᴀʀᴅ ɪᴛ ᴛᴏ Sᴀᴠᴇᴅ Mᴇꜱꜱᴀɢᴇꜱ Bᴇꜰᴏʀᴇ Dᴏᴡɴʟᴏᴀᴅɪɴɢ..!</b>")
+
+        k = await client.send_message(chat_id=message.from_user.id, text="<b>⚠️ Fɪʟᴇꜱ ᴡɪʟʟ ʙᴇ Dᴇʟᴇᴛᴇᴅ ɪɴ 10 ᴍɪɴꜱ\n\n♻️ Pʟᴇᴀꜱᴇ Fᴏʀᴡᴀʀᴅ ɪᴛ ᴛᴏ Sᴀᴠᴇᴅ Mᴇꜱꜱᴀɢᴇꜱ Bᴇꜰᴏʀᴇ Dᴏᴡɴʟᴏᴀᴅɪɴɢ..!</b>")
         await asyncio.sleep(SECONDS)
-        await f.delete()
+        
+        for file in sent_files:
+            await file.delete()  # Delete each sent file message
         await k.edit_text("Your video / file is successfully deleted !")
 
-
         return
+
     else:
         reply_markup = InlineKeyboardMarkup(
             [
