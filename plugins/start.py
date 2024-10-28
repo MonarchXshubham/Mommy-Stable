@@ -104,8 +104,8 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("😊 About Me", callback_data = "about"),
-                    InlineKeyboardButton("🔒 Close", callback_data = "close")
+                    InlineKeyboardButton("⚡️ ᴀʙᴏᴜᴛ ᴍᴇ", callback_data = "about"),
+                    InlineKeyboardButton("✨ ᴄʟᴏꜱᴇ", callback_data = "close")
                 ]
             ]
         )
@@ -139,6 +139,7 @@ async def not_joined(client: Client, message: Message):
     buttons = [
         [
             InlineKeyboardButton(text="Join Channel", url=client.invitelink),
+            InlineKeyboardButton(text="Join Channel", url = "https://t.me/+AgCVNBsS6PA4ZWQ1"),
             InlineKeyboardButton(text="Join Channel", url=client.invitelink2),
         ]
     ]
