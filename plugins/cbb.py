@@ -19,12 +19,18 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if data == "about":
         await query.message.edit_text(
-            text = f"<b>🤖 My Name :</b> <a href='https://t.me/FileSharingXProBot'>File Sharing Bot</a> \n<b>📝 Language :</b> <a href='https://python.org'>Python 3</a> \n<b>📚 Library :</b> <a href='https://pyrogram.org'>Pyrogram {__version__}</a> \n<b>🚀 Server :</b> <a href='https://heroku.com'>Heroku</a> \n<b>📢 Channel :</b> <a href='https://t.me/Madflix_Bots'>Madflix Botz</a> \n<b>🧑‍💻 Developer :</b> <a href='tg://user?id={OWNER_ID}'>Jishu Developer</a>",
+            text = f"<b>○ 𝐎ᴡɴᴇʀ : <a href='https://t.me/Fushiguro_x'>𝐅ᴜsʜɪɢᴜʀᴏ</a> \n ○ 𝐀ɴɪᴍᴇ 𝐂ʜᴀɴɴᴇʟ : <a href='https://t.me/Anime_Duo'>𝐀ɴɪᴍᴇ 𝐇ɪɴᴅɪ</a>  \n ○ 𝐇ᴀɴɪᴍᴇ 𝐂ʜᴀɴɴᴇʟ : <a href='https://t.me/+rqJjl4BBd3M4NDc1'>𝐇ᴜɴᴛᴀɪ 𝐖ᴏʀʟᴅ</a> \n ○ 𝐃ᴇᴠʟᴏᴘᴇʀ : <a href='https://t.me/VR_Necromancer'>ɴᴇᴄʀᴏᴍᴀɴᴄᴇʀ</a> </b> \n\n ᴘᴏᴡᴇʀᴇᴅ ʙʏ <a href='https://t.me/VR_unreal'>ᴠʀ ᴜɴʀᴇᴀʟ☠️</a></b>",
             disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
+                        InlineKeyboardButton("⚡️ ᴀɴɪᴍᴇ ᴅᴜᴏ", url='https://t.me/Anime_Duo'),
+                        InlineKeyboardButton("✨ ʜᴇᴍᴛᴀɪ ᴡᴏʀʟᴅ", url='https://t.me/+rqJjl4BBd3M4NDc1')
+                    ],[
                         InlineKeyboardButton("🔒 Close", callback_data = "close")
+                    ],[
+                        InlineKeyboardButton("📡 ᴠʀ ᴜɴʀᴇᴀʟ", url='https://t.me/vr_unreal'),
+                        InlineKeyboardButton("📹 ᴠʀ ꜱᴜᴘᴘᴏʀᴛ", url='https://t.me/vr_support')
                     ]
                 ]
             )
