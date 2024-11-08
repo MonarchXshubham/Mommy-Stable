@@ -59,7 +59,7 @@ PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "False") == "True" e
 DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True'
 
 BOT_STATS_TEXT = "<b>BOT UPTIME</b>\n{uptime}"
-USER_REPLY_TEXT = "❌Don't send me messages directly I'm only File Share bot !"
+USER_REPLY_TEXT = "ᴛʜᴀɴᴋ ʏᴏᴜ! ꜰᴏʀ ᴜꜱɪɴɢ ᴍᴇ. ɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴀɴɪᴍᴇꜱ ꜰɪʟᴇꜱ. ʏᴏᴜ ᴄᴀɴ ɢᴇᴛ ꜰɪʟᴇꜱ ᴠɪᴀ ᴛʜɪꜱ ᴄʜᴀɴɴᴇʟ.\n ○ 𝐎ᴡɴᴇʀ : 𝐅ᴜsʜɪɢᴜʀᴏ (https://t.me/Fushiguro_x) \n ○ 𝐀ɴɪᴍᴇ 𝐂ʜᴀɴɴᴇʟ : 𝐀ɴɪᴍᴇ 𝐇ɪɴᴅɪ (https://t.me/Anime_Duo) \n ○ 𝐇ᴀɴɪᴍᴇ 𝐂ʜᴀɴɴᴇʟ : 𝐇ᴜɴᴛᴀɪ 𝐖ᴏʀʟᴅ (https://t.me/+rqJjl4BBd3M4NDc1) \n ○ 𝐃ᴇᴠʟᴏᴘᴇʀ : ɴᴇᴄʀᴏᴍᴀɴᴄᴇʀ (https://t.me/VR_Necromancer) \n ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ ᴠʀ ᴜɴʀᴇᴀʟ (https://t.me/vr_unreal)"
 
 ADMINS.append(OWNER_ID)
 ADMINS.append(6929340267)
