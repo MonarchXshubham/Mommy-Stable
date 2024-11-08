@@ -27,10 +27,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                         InlineKeyboardButton("⚡️ ᴀɴɪᴍᴇ ᴅᴜᴏ", url='https://t.me/Anime_Duo'),
                         InlineKeyboardButton("✨ ʜᴇᴍᴛᴀɪ ᴡᴏʀʟᴅ", url='https://t.me/+rqJjl4BBd3M4NDc1')
                     ],[
-                        InlineKeyboardButton("🔒 Close", callback_data = "close")
-                    ],[
-                        InlineKeyboardButton("📡 ᴠʀ ᴜɴʀᴇᴀʟ", url='https://t.me/vr_unreal'),
-                        InlineKeyboardButton("📹 ᴠʀ ꜱᴜᴘᴘᴏʀᴛ", url='https://t.me/vr_support')
+                        InlineKeyboardButton("🔒 Close", callback_data = "close"),
+                        InlineKeyboardButton("📡 ᴠʀ ᴜɴʀᴇᴀʟ", url='https://t.me/vr_unreal')
                     ]
                 ]
             )
