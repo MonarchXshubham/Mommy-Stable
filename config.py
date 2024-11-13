@@ -43,7 +43,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 START_MSG = os.environ.get("START_MESSAGE", "<b>Hello {first}\n\nI can store private files in Animes Duo Channel and other users can access it from special link. \n\n ᴘᴏᴡᴇʀᴇᴅ ʙʏ <a href='https://t.me/VR_unreal'>ᴠʀ ᴜɴʀᴇᴀʟ✨</a></b>")
 
 try:
-    ADMINS=[6929340267]
+    ADMINS=[6551906246]
     for x in (os.environ.get("ADMINS", "7871556756 6447084129 5961139833 6586546549").split()):
         ADMINS.append(int(x))
 except ValueError:
